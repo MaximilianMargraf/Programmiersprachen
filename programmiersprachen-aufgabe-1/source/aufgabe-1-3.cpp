@@ -3,17 +3,17 @@
 // check for smallest number, which is dividable for all numbers in given range
 int smallestDividable(unsigned int a, int b)
 {
-	int countFalse = 1;
-	unsigned int smallestNumber = a;
+	bool countFalse = false;
+	unsigned int smallestNumber = b - 1;
 
-	while (countFalse != 0)
+	while (countFalse != true)
 	{
 		// reset for each number tested
-		countFalse = 0;
+		countFalse = true;
 
 		// after checking for every number in range, check for next number
 		smallestNumber += 1; 
-		
+
 		// from a to b check if the modulo returns 0
 		for (int i = a; i <= b; i++)
 		{
@@ -21,12 +21,10 @@ int smallestDividable(unsigned int a, int b)
 			// if it does return 0, we need to check all other numbers
 			if (smallestNumber % i != 0)
 			{
-				countFalse = 1;
+				countFalse = false;
 				break;
 			}
 		}
-
-
 	}
 
 	return smallestNumber;
