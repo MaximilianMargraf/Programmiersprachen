@@ -19,7 +19,7 @@ int main()
 	// Datentyps in einen anderen. Hier würde zum Beispiel aus einem int (a)
 	// ein double werden. Die Variable "two" existiert jedoch noch nicht.
 
-	double e = a/two;
+	double e = a/e;
 
 	// Der konstanten Variable wird ein neuer Wert zugeordnet
 	five = d;
