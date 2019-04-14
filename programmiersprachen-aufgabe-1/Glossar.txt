@@ -1,0 +1,119 @@
+C++:
+Eine objektorientierte Programmiersprache. Es ist relativ effizient im Vergleich zu einigen anderen Sprachen, aber immer noch abstrakt genug um gut lesbar zu sein.
+
+
+Quellcode:
+Hierbei handelt es sich um den geschrieben Code (source code). Ist für den Menschen lesbar und hängt von der Programmiersprache ab.
+
+
+Compiler:
+Der Compiler interpretiert den Quellcode nach vorgegebenen Parametern und macht aus ihm Maschinencode, welcher vom Computer verarbeitet werden kann.
+
+
+Linker:
+Der Linker sorgt dafür, dass einzelne Module des Programms verbunden werden, um im Ganzen ein ausführbares Programm zu liefern.
+
+
+Objectcode:
+Das Ergebnis des Compilers, nachdem er den Quellcode in Maschinensprache übersetzt hat.
+
+
+Ausführbare Datei:
+Hierbei handelt es sich um eine Date, welche als Programm ausgeführt werden kann.
+
+
+main():
+Die main() ist wohl die wichtigste Funktion, da diese bei Programmstart als erstes aufgerufen wird.
+
+
+#include:
+Mit #include wird ein Quellcode aus anderen Quellen eingebunden und lokal zur Verfügung gestellt.
+
+
+Kommentar:
+// dienen zur Übersichtlichkeit/Dokumentation/Verständlichkeit des Codes
+
+
+Header:
+Header files beinhalten die Deklarationen für z.B. Klassen, welche später in der .cpp definiert werden. Somit wird das Fehlerpotential verringert.
+
+
+Programm:
+Ein Programm ist eine Sammlung von Quellcode, welches bei seiner Ausführung einen bestimmten Task erfüllt.
+
+
+Ausgabe:
+Hierbei handelt es sich um die Ausgabe eines Programms, also welche Daten es sendet. Dies könnte z.B. ein Text an das Terminal sein.
+
+
+std::cout:
+Der Standard Output Stream stellt eine Ausgabe zum Standard Output dar. Bei Linux ist dies das Terminal.
+
+
+std::cin:
+Analog zu cout, nur handelt es sich hierbei um einen Input.
+
+
+<<:
+Der << ist ein Insertion Operator. Die Daten die hinter (rechts von) ihm stehen, werden in den vorherigen Stream eingefügt. 
+
+
+>>:
+Analag zu <<, nur wird hier die Richtung verändert.
+
+
+Funktion:
+Eine Funktion beschreibt eine bestimmte Funktionalität eines Programms. Funktionen sind wiederverwendbar und haben typischerweise einen Rückgabetypen.
+
+Methode:
+Eine Methode ist Teil einer Klasse, muss also mit objekt.method(parameters) referenziert werden. Funktioniert aber genauso wie eine Funktion.
+
+
+Funktionssignatur:
+Die Signatur einer Funktion besteht aus ihrem Namen und ihren Eingabeparametern. Der Rückgabetyp gehört nicht dazu!
+
+
+Deklaration:
+Mit einer Deklaration teilt man dem Compiler mit, dass eine Variable/Objekt/Funktion/Methode exisitert und unter welchem Namen diese zu adressieren ist.
+
+
+Definition:
+Mit einer Definition wird etwas deklariertes genauer spezifiziert.
+
+
+Typ:
+Der Typ einer Variable oder eines Objektes bestimmt das Verhalten und welche Werte angenommen werden können.
+
+
+Typenkonvertierung:
+Bei einer Typkonvertierung wird ein Datentyp in einen anderen umgewandelt. 
+
+
+Variable:
+Eine Variable wird genutzt um Information zu speichern auf welche dann später zugegriffen werden kann. Variablen passend zu benennen, wird oft als eine der schwierigsten Probleme in Computer Science  bezeichnet.
+
+
+Name:
+Der Name der Variable bestimmt, wie diese später adressiert wird.
+
+
+Wert:
+Rechts vom = steht der Wert der zugewiesen wird.
+
+
+Initialisierung:
+Eine Initialisierung ist die erste Zuweisung. Sie ist wichtig, da eine nicht initialisiert Variable einen zufälligen Wert annimmt.
+int a = 0; 
+
+
+Zuweisung:
+Eine Wertzuweisung ist der klassische = Operator. Man kann einer Variable etc. mehrfach Werte während der Laufzeit des Programmes zuordnen.
+b = 2.0; 
+
+
+const:
+Wird etwas const deklariert, so heißt dies, dass sich der Wert der Variable nicht mehr ändern wird.
+
+
+Gültigkeitsbereich:
+Auch Scope genannt. Er beschreibt in welchem Bereich des Programms eine Variable etc. gültig ist.

@@ -88,36 +88,143 @@ TEST_CASE ("describe_sum_multiples", "[sum_multiples]")
 
 
 // 1.11 calculation of the "after ," part of a float
+float fract(float tofrac)
+{
+	int h = tofrac;
+	float c = h - tofrac;
+	return c * (-1);
+}
+
+
+TEST_CASE ("describe_fract", "[fract]")
+{
+	REQUIRE (fract(1.45) == Approx(0.45));
+	REQUIRE (fract(2) == Approx(0));
+	REQUIRE (fract(-10.78695032356) == Approx(-0.78695032356));
+	REQUIRE (fract(0.0023) == Approx(0.0023));
+}
 
 
 // 1.12 volume and surface of a cylinder
 float surface_cylinder(float radius, float height)
 {
-	return 2 * M_PI * pow(radius, 2) + 2 * M_PI * radius * height;
+	if (radius < 0 || height < 0)
+	{
+		return 0.0;
+	}
+	
+	else
+	{
+		return 2 * M_PI * pow(radius, 2) + 2 * M_PI * radius * height;
+	}
 }
+
 
 float volume_cylinder(float radius, float height)
 {
-	return M_PI * pow(radius, 2) * height;
+	if (radius < 0 || height < 0)
+	{
+		return 0.0;
+	}
+	
+	else
+	{
+		return M_PI * pow(radius, 2) * height;
+	}
 }
+
 
 TEST_CASE ("describe_surface_cylinder", "[surface_cylinder]")
 {
 	REQUIRE (surface_cylinder(5, 10) == Approx(471.23889));
 	REQUIRE (surface_cylinder(0, 10) == Approx(0));
+	REQUIRE (surface_cylinder(2, -3) == Approx(0));
 }
+
 
 TEST_CASE ("describe_volume_cylinder", "[volume_cylinder]")
 {
 	REQUIRE (volume_cylinder(5, 10) == Approx(785.398));
 	REQUIRE (volume_cylinder(0, 10) == Approx(0));
+	REQUIRE (volume_cylinder(2, -3) == Approx(0));
 }
 
+
 // 1.13 factorial of an int
+int factorial(int a)
+{
+	if (a ==0)
+	{
+		return 1;
+	}
+
+	int product = 1;
+
+	for(int i = 1; i <= a; i++)
+	{
+		product = product * i;
+	}
+
+	return product;
+}
+
+
+TEST_CASE ("describe_factorial", "[factorial]")
+{
+	REQUIRE (factorial(0) == 1);
+	REQUIRE (factorial(1) == 1);
+	REQUIRE (factorial(3) == 6);
+	REQUIRE (factorial(10) == 3628800);
+}
+
 
 // 1.14 is prime
+bool is_prime(int a)
+{
+	if ( a == 0 || a == 1)
+	{
+		return false;
+	}
 
-// mile to kilometers
+	for(int i = 2; i < a; i++)
+	{
+		if (a % i == 0)
+		{
+			return false;
+		}
+	}
+
+	return true;
+}
+
+
+TEST_CASE ("describe_is_prime", "[is_prime]")
+{
+	REQUIRE (is_prime(0) == false);
+	REQUIRE (is_prime(1) == false);
+	REQUIRE (is_prime(2) == true);
+	REQUIRE (is_prime(3) == true);
+	REQUIRE (is_prime(10) == false);
+	REQUIRE (is_prime(15) == false);
+	REQUIRE (is_prime(97) == true);
+}
+
+
+// 1.15 mile to kilometers
+double mile_to_kilometer(double miles)
+{
+	return 1.609344 * miles;
+}
+
+
+TEST_CASE ("describe_mile_to_kilometer", "[mile_to_kilometer]")
+{
+	REQUIRE (mile_to_kilometer(0) == Approx(0));
+	REQUIRE (mile_to_kilometer(1) == Approx(1.609344));
+	REQUIRE (mile_to_kilometer(3) == Approx(4.828032));
+	REQUIRE (mile_to_kilometer(15) == Approx(24.14016));
+}
+
 
 
 int main(int argc, char* argv[])
