@@ -329,11 +329,13 @@ TEST_CASE ("describe_Color", "[Color]"){
 
 // test circle
 TEST_CASE ("describe_Circle", "[Circle]"){
+	Color grey;
+
 	Circle c1;
 	float cir1 = c1.circumference();
 
 	Vec2 tmp{4.5f, 10.1f};
-	Circle c2{tmp, 4.0f};
+	Circle c2{tmp, 4.0f, grey};
 	float cir2 =c2.circumference();
 
 	REQUIRE(Approx(6.28319f)==cir1);

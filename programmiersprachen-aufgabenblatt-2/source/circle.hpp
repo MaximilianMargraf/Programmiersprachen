@@ -3,17 +3,25 @@
 
 #include<math.h>
 
+#include "color.hpp"
 #include "vec2.hpp"
 
 class Circle{
 	public:
 		Circle();
+		Circle(Color const& color);
+		Circle(float rad);
+		Circle(Vec2 const& pos);
+		Circle(float rad, Color const& color);
 		Circle(Vec2 const& pos, float rad);
+		Circle(Vec2 const& pos, Color const& color);
+		Circle(Vec2 const& pos, float rad, Color const& color);
 		float circumference() const;
 
 	private:
-		Vec2 position;
+		Color color;
 		float radius;
+		Vec2 position;
 };
 
 #endif // CIRCLE_HPP
