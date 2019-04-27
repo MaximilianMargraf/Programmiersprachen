@@ -5,6 +5,8 @@
 #include "vec2.hpp"
 #include "mat2.hpp"
 #include "color.hpp"
+#include "circle.hpp"
+#include "rectangle.hpp"
 
 // test 2d vector
 TEST_CASE ("describe_Vec2", "[Vec2]"){
@@ -316,7 +318,6 @@ TEST_CASE ("describe_free_rot_Mat2", "[Mat2]"){
 	REQUIRE(Approx(-0.44807f)==matB.e_11);
 }
 
-
 // test color
 TEST_CASE ("describe_Color", "[Color]"){
 	Color grey;
@@ -324,6 +325,47 @@ TEST_CASE ("describe_Color", "[Color]"){
 	REQUIRE(Approx(115.0f/255.0f)==grey.r);
 	REQUIRE(Approx(115.0f/255.0f)==grey.g);
 	REQUIRE(Approx(115.0f/255.0f)==grey.b);
+}
+
+// test circle
+TEST_CASE ("describe_Circle", "[Circle]"){
+	Circle c1;
+	Vec2 tmp{4.5f, 10.1f};
+	Circle c2{tmp, 4.0f};
+/*
+	REQUIRE(Approx(0.0f)==c1.position.x);
+	REQUIRE(Approx(0.0f)==c1.position.y);
+	REQUIRE(Approx(1.0f)==c1.radius);
+	REQUIRE(Approx(4.5f)==c2.position.x);
+	REQUIRE(Approx(10.1f)==c2.position.y);
+	REQUIRE(Approx(4.0f)==c2.radius);
+*/
+}
+
+// test rectangle
+TEST_CASE ("describe_Rectangle", "[Rectangle]"){
+	Rectangle r1;
+	Vec2 tmp1{4.5f, 5.1f};
+	Vec2 tmp2{7.9f, 9.8f};
+	Rectangle r2{tmp1, tmp2};
+
+	Vec2 tmp3{8.7f, 10.1f};
+	Vec2 tmp4{7.9f, 9.8f};
+	Rectangle r3{tmp3, tmp4};
+/*
+	REQUIRE(Approx(0.0f)==r1.min_.x);
+	REQUIRE(Approx(0.0f)==r1.min_.y);
+	REQUIRE(Approx(1.0f)==r1.max_.x);
+	REQUIRE(Approx(1.0f)==r1.max_.y);
+	REQUIRE(Approx(4.5f)==r2.min_.x);
+	REQUIRE(Approx(5.1f)==r2.min_.y);
+	REQUIRE(Approx(7.9f)==r2.max_.x);
+	REQUIRE(Approx(9.8f)==r2.max_.y);
+	REQUIRE(Approx(7.9f)==r3.min_.x);
+	REQUIRE(Approx(9.8f)==r3.min_.y);
+	REQUIRE(Approx(8.7f)==r3.max_.x);
+	REQUIRE(Approx(10.1f)==r3.max_.y);
+*/
 }
 
 int main(int argc, char *argv[])

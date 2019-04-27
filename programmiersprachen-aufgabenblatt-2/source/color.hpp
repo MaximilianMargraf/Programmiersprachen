@@ -8,8 +8,7 @@ class:
 default private members and bases
 */
 
-struct Color
-{
+struct Color{
 	// default color, greyish
 	float r = 115.0f/255.0f;
 	float g = 115.0f/255.0f;
