@@ -16,7 +16,7 @@ void Vec2::setX(float x_){
 	x = x_;
 }
 
-void Vec2::setY(float Y_){
+void Vec2::setY(float y_){
 	y = y_;
 }
 
@@ -26,6 +26,4 @@ float Vec2::getX(){
 
 float Vec2::getY(){
 	return y;
-
-
-#endif // VEC2_HPP
+}
