@@ -235,6 +235,86 @@ TEST_CASE ("describe_free_op_mul_Ḿat2", "[Mat2]"){
 	REQUIRE(Approx(37.0f)==matF.e_11);
 }
 
+// test 2d matrix vector multiplikation
+TEST_CASE ("describe_free_op_mat_vec_Mat2", "[Mat2]"){
+	// val
+	Vec2 vecA{3.0f, 4.0f};
+	Mat2 matA{2.0f, 3.0f, 4.0f, 5.0f};
+
+	Vec2 vecB = vecA * matA;
+	Vec2 vecC = matA * vecA;
+
+	REQUIRE(Approx(18.0f)==vecC.x);
+	REQUIRE(Approx(32.0f)==vecC.y);
+	REQUIRE(Approx(18.0f)==vecB.x);
+	REQUIRE(Approx(32.0f)==vecB.y);
+}
+
+// test 2d matrix determinante
+TEST_CASE ("describe_det_Mat2", "[Mat2]"){
+	Mat2 matA;
+	// val
+	Mat2 matB{2.0f, 3.0f, 4.0f, 5.0f};
+	Mat2 matC{-4.0f, 20.0f, 111.0f, 13.0f};
+
+	REQUIRE(Approx(1.0f)==matA.det());
+	REQUIRE(Approx(-2.0f)==matB.det());
+	REQUIRE(Approx(-2272.0f)==matC.det());
+}
+
+// test 2d matrix inverse
+TEST_CASE ("describe_free_inv_Mat2", "[Mat2]"){
+	Mat2 matA;
+	// val
+	Mat2 matB{4.0f, 7.0f, 2.0f, 6.0f};
+
+	Mat2 matD = inverse(matA);
+	Mat2 matE = inverse(matB);
+
+	REQUIRE(Approx(1.0f)==matD.e_00);
+	REQUIRE(Approx(0.0f)==matD.e_01);
+	REQUIRE(Approx(0.0f)==matD.e_10);
+	REQUIRE(Approx(1.0f)==matD.e_11);
+	REQUIRE(Approx(0.6f)==matE.e_00);
+	REQUIRE(Approx(-0.7f)==matE.e_01);
+	REQUIRE(Approx(-0.2f)==matE.e_10);
+	REQUIRE(Approx(0.4f)==matE.e_11);
+}
+
+// test 2d matrix transposed
+TEST_CASE ("describe_free_trans_Mat2", "[Mat2]"){
+	Mat2 matA;
+	// val
+	Mat2 matB{4.0f, 7.0f, 2.0f, 6.0f};
+
+	Mat2 matD = transpose(matA);
+	Mat2 matE = transpose(matB);
+
+	REQUIRE(Approx(1.0f)==matD.e_00);
+	REQUIRE(Approx(0.0f)==matD.e_01);
+	REQUIRE(Approx(0.0f)==matD.e_10);
+	REQUIRE(Approx(1.0f)==matD.e_11);
+	REQUIRE(Approx(4.0f)==matE.e_00);
+	REQUIRE(Approx(2.0f)==matE.e_01);
+	REQUIRE(Approx(7.0f)==matE.e_10);
+	REQUIRE(Approx(6.0f)==matE.e_11);
+}
+
+// test 2d rotation matrix
+TEST_CASE ("describe_free_rot_Mat2", "[Mat2]"){
+	Mat2 matA = make_rotation_mat2(20.0f);
+	Mat2 matB = make_rotation_mat2(90.0f);
+
+	REQUIRE(Approx(0.40808f)==matA.e_00);
+	REQUIRE(Approx(-0.91295f)==matA.e_01);
+	REQUIRE(Approx(0.91295f)==matA.e_10);
+	REQUIRE(Approx(0.40808f)==matA.e_11);
+	REQUIRE(Approx(-0.44807f)==matB.e_00);
+	REQUIRE(Approx(-0.894f)==matB.e_01);
+	REQUIRE(Approx(0.894f)==matB.e_10);
+	REQUIRE(Approx(-0.44807f)==matB.e_11);
+}
+
 int main(int argc, char *argv[])
 {
   return Catch::Session().run(argc, argv);
