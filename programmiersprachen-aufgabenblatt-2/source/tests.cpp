@@ -3,6 +3,7 @@
 #include<math.h>
 
 #include "vec2.hpp"
+#include "mat2.hpp"
 
 // test 2d vector
 TEST_CASE ("describe_Vec2", "[Vec2]"){
@@ -23,7 +24,6 @@ TEST_CASE ("describe_addition_Vec2", "[Vec2]"){
 	Vec2 vecA;
 	// val
 	Vec2 vecB{3.0f, 3.0f};
-	// val 2
 	Vec2 vecC{5.5f,4.5f};
 
 	vecA += vecB;
@@ -41,7 +41,6 @@ TEST_CASE ("describe_subtraction_Vec2", "[Vec2]"){
 	Vec2 vecA;
 	// val
 	Vec2 vecB{3.0f, 3.0f};
-	// val 2
 	Vec2 vecC{5.5f,4.5f};
 
 	vecC -= vecB;
@@ -77,7 +76,6 @@ TEST_CASE ("describe_division_Vec2", "[Vec2]"){
 	Vec2 vecA;
 	// val
 	Vec2 vecB{6.0f,12.0f};
-	// val 2
 	Vec2 vecC{3.0f,3.0f};
 
 	float d = 2;
@@ -116,7 +114,6 @@ TEST_CASE ("describe_free_op_sub_Vec2", "[Vec2]"){
 	Vec2 vecA;
 	// val
 	Vec2 vecB{6.0f,12.0f};
-	// val 2
 	Vec2 vecC{3.0f,3.0f};
 
 	vecA = vecB-vecC;
@@ -133,7 +130,7 @@ TEST_CASE ("describe_free_op_mul_Vec2", "[Vec2]"){
 	Vec2 vecC;
 	// val
 	Vec2 vecD{6.0f,12.0f};
-	// val 2
+
 	float f = 2.0f;
 	float o= 0.0f;
 
@@ -156,7 +153,7 @@ TEST_CASE ("describe_free_op_div_Vec2", "[Vec2]"){
 	Vec2 vecB;
 	// val
 	Vec2 vecC{6.0f,12.0f};
-	// val 2
+
 	float f = 2.0f;
 	float o= 0.0f;
 
@@ -167,6 +164,75 @@ TEST_CASE ("describe_free_op_div_Vec2", "[Vec2]"){
 	REQUIRE(Approx(6.0f)==vecA.y);
 	REQUIRE(Approx(0.0f)==vecB.x);
 	REQUIRE(Approx(0.0f)==vecB.y);
+}
+
+// test 2d matrix constructors
+TEST_CASE ("describe_Ḿat2", "[Mat2]"){
+	// def
+	Mat2 matA;
+	// val
+	Mat2 matB{2.0f, 3.0f, 4.0f, 5.0f};
+
+	REQUIRE(Approx(1.0f)==matA.e_00);
+	REQUIRE(Approx(0.0f)==matA.e_01);
+	REQUIRE(Approx(0.0f)==matA.e_10);
+	REQUIRE(Approx(1.0f)==matA.e_11);
+	REQUIRE(Approx(2.0f)==matB.e_00);
+	REQUIRE(Approx(3.0f)==matB.e_01);
+	REQUIRE(Approx(4.0f)==matB.e_10);
+	REQUIRE(Approx(5.0f)==matB.e_11);
+}
+
+// test 2d matrix multiplikation
+TEST_CASE ("describe_multiplikation_Ḿat2", "[Mat2]"){
+	// def
+	Mat2 matA;
+	// val
+	Mat2 matB{2.0f, 3.0f, 4.0f, 5.0f};
+	Mat2 matC{0.0f, 0.0f, 0.0f, 0.0f};
+
+	matA *= matB;
+	matC *= matB;
+	Mat2 matD = matB * matB;
+
+	REQUIRE(Approx(2.0f)==matA.e_00);
+	REQUIRE(Approx(3.0f)==matA.e_01);
+	REQUIRE(Approx(4.0f)==matA.e_10);
+	REQUIRE(Approx(5.0f)==matA.e_11);
+	REQUIRE(Approx(0.0f)==matC.e_00);
+	REQUIRE(Approx(0.0f)==matC.e_01);
+	REQUIRE(Approx(0.0f)==matC.e_10);
+	REQUIRE(Approx(0.0f)==matC.e_11);
+	REQUIRE(Approx(16.0f)==matD.e_00);
+	REQUIRE(Approx(21.0f)==matD.e_01);
+	REQUIRE(Approx(28.0f)==matD.e_10);
+	REQUIRE(Approx(37.0f)==matD.e_11);
+}
+
+// test 2d matrix multiplikation
+TEST_CASE ("describe_free_op_mul_Ḿat2", "[Mat2]"){
+	// def
+	Mat2 matA;
+	// val
+	Mat2 matB{2.0f, 3.0f, 4.0f, 5.0f};
+	Mat2 matC{0.0f, 0.0f, 0.0f, 0.0f};
+
+	Mat2 matD = matA * matB;
+	Mat2 matE = matC * matB;
+	Mat2 matF = matB * matB;
+
+	REQUIRE(Approx(2.0f)==matD.e_00);
+	REQUIRE(Approx(3.0f)==matD.e_01);
+	REQUIRE(Approx(4.0f)==matD.e_10);
+	REQUIRE(Approx(5.0f)==matD.e_11);
+	REQUIRE(Approx(0.0f)==matE.e_00);
+	REQUIRE(Approx(0.0f)==matE.e_01);
+	REQUIRE(Approx(0.0f)==matE.e_10);
+	REQUIRE(Approx(0.0f)==matE.e_11);
+	REQUIRE(Approx(16.0f)==matF.e_00);
+	REQUIRE(Approx(21.0f)==matF.e_01);
+	REQUIRE(Approx(28.0f)==matF.e_10);
+	REQUIRE(Approx(37.0f)==matF.e_11);
 }
 
 int main(int argc, char *argv[])

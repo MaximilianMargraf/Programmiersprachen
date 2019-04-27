@@ -1,6 +1,7 @@
 #ifndef VEC2_HPP
 #define VEC2_HPP
 
+// define a 2d vector
 struct Vec2{
 
 	// def constructor
@@ -8,6 +9,9 @@ struct Vec2{
 
 	// val constructor
 	Vec2(float x, float y);
+
+	// vec constructor
+	Vec2(Vec2 const& vec2);
 
 	// variables
 	float x;
