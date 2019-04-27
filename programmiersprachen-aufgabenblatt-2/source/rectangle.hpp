@@ -7,6 +7,7 @@ class Rectangle{
 	public:
 		Rectangle();
 		Rectangle(Vec2 const& min_, Vec2 const& max_);
+		float circumference() const;
 
 	private:
 		Vec2 min_;

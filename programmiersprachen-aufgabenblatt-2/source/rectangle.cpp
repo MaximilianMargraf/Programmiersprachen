@@ -20,4 +20,12 @@ Rectangle::Rectangle(Vec2 const& min, Vec2 const& max):
 			min_.y = max_.y;
 			max_.y = tmp;
 		}
+	}
+
+float Rectangle::circumference() const{
+	float circ = (max_.x - min_.x) * (max_.y - min_.y);
+	if(circ < 0){
+		circ *= -1;
+	}
+	return circ;
 }
