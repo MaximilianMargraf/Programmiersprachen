@@ -1,17 +1,38 @@
-#include "window.hpp"
+#include <cmath>
 #include <GLFW/glfw3.h>
 #include <utility>
-#include <cmath>
 
+#include "circle.hpp"
+#include "color.hpp"
+#include "rectangle.hpp"
+#include "vec2.hpp"
+#include "window.hpp"
 
 int main(int argc, char* argv[])
 {
+
+
+
   Window win{std::make_pair(800,800)};
 
   while (!win.should_close()) {
     if (win.get_key(GLFW_KEY_ESCAPE) == GLFW_PRESS) {
       win.close();
     }
+
+    // create colors
+    Color crimson{220.0f/255.0f, 20.0f/255.0f, 60.0f/255.0f};
+    Color silver{192.0f/255.0f, 192.0f/255.0f, 192.0f/255.0f};
+
+    // create circle
+    Vec2 center{500.0f, 400.0f};
+    float rad = 100.0f;
+    Circle circ{center, rad, silver};
+
+    // create rectangle
+    Vec2 min_{150.0f,432.0f};
+    Vec2 max_{272.0f, 241.0f};
+    Rectangle rect{min_, max_, crimson};
 
     bool left_pressed = win.get_mouse_button(GLFW_MOUSE_BUTTON_LEFT) == GLFW_PRESS;
 
@@ -44,6 +65,12 @@ int main(int argc, char* argv[])
     win.draw_line(mouse_position.first, 0, mouse_position.first, 10, 0.0, 0.0, 0.0);
     win.draw_line(mouse_position.first, win.window_size().second - 10, mouse_position.first, win.window_size().second, 0.0, 0.0, 0.0);
 
+    // draw circle
+    circ.draw(win);
+
+    // draw rectangle
+    rect.draw(win);
+
     std::string display_text = "mouse position: (" + std::to_string(mouse_position.first) + ", " + std::to_string(mouse_position.second) + ")";
     
     int text_offset_x = 10;
@@ -51,6 +78,7 @@ int main(int argc, char* argv[])
     unsigned int font_size = 35;
     
     win.draw_text(text_offset_x, text_offset_y, font_size, display_text);
+
 
     win.update();
   }

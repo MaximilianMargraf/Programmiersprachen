@@ -55,3 +55,11 @@ float Rectangle::circumference() const{
 	}
 	return circ;
 }
+
+
+void Rectangle::draw(Window const& window) const{
+	window.draw_line(min_.x, min_.y, max_.x, min_.y, color.r, color.g, color.b);
+	window.draw_line(min_.x, min_.y, min_.x, max_.y, color.r, color.g, color.b);
+	window.draw_line(max_.x, min_.y, max_.x, max_.y, color.r, color.g, color.b);
+	window.draw_line(min_.x, max_.y, max_.x, max_.y, color.r, color.g, color.b);
+}

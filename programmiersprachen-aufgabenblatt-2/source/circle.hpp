@@ -5,6 +5,8 @@
 
 #include "color.hpp"
 #include "vec2.hpp"
+#include "mat2.hpp"
+#include "window.hpp"
 
 class Circle{
 	public:
@@ -16,7 +18,9 @@ class Circle{
 		Circle(Vec2 const& pos, float rad);
 		Circle(Vec2 const& pos, Color const& color);
 		Circle(Vec2 const& pos, float rad, Color const& color);
+
 		float circumference() const;
+		void draw(Window const& window) const;
 
 	private:
 		Color color;

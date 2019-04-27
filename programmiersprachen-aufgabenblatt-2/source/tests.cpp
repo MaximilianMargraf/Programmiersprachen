@@ -326,7 +326,7 @@ TEST_CASE ("describe_Color", "[Color]"){
 	REQUIRE(Approx(115.0f/255.0f)==grey.g);
 	REQUIRE(Approx(115.0f/255.0f)==grey.b);
 }
-
+/*
 // test circle
 TEST_CASE ("describe_Circle", "[Circle]"){
 	Color grey;
@@ -361,7 +361,7 @@ TEST_CASE ("describe_Rectangle", "[Rectangle]"){
 	REQUIRE(Approx(1.0f)==c1);
 	REQUIRE(Approx(15.98f)==c2);
 	REQUIRE(Approx(0.24f)==c3);
-}
+}*/
 
 int main(int argc, char *argv[])
 {

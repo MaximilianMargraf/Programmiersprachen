@@ -3,7 +3,7 @@
 
 #include "color.hpp"
 #include "vec2.hpp"
-
+#include "window.hpp"
 
 class Rectangle{
 	public:
@@ -13,7 +13,9 @@ class Rectangle{
 		Rectangle(Vec2 const& min_, Color const& color);
 		Rectangle(Vec2 const& min_, Vec2 const& max_);
 		Rectangle(Vec2 const& min_, Vec2 const& max_, Color const& color);
+
 		float circumference() const;
+		void draw(Window const& window) const;
 
 	private:
 		Color color;
