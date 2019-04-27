@@ -17,6 +17,7 @@ add_executable(tests
   glew.c
   vec2.cpp
   mat2.cpp
+  color.hpp
   tests.cpp
   )
 target_link_libraries(tests

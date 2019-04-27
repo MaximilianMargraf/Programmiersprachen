@@ -4,6 +4,7 @@
 
 #include "vec2.hpp"
 #include "mat2.hpp"
+#include "color.hpp"
 
 // test 2d vector
 TEST_CASE ("describe_Vec2", "[Vec2]"){
@@ -313,6 +314,16 @@ TEST_CASE ("describe_free_rot_Mat2", "[Mat2]"){
 	REQUIRE(Approx(-0.894f)==matB.e_01);
 	REQUIRE(Approx(0.894f)==matB.e_10);
 	REQUIRE(Approx(-0.44807f)==matB.e_11);
+}
+
+
+// test color
+TEST_CASE ("describe_Color", "[Color]"){
+	Color grey;
+
+	REQUIRE(Approx(115.0f/255.0f)==grey.r);
+	REQUIRE(Approx(115.0f/255.0f)==grey.g);
+	REQUIRE(Approx(115.0f/255.0f)==grey.b);
 }
 
 int main(int argc, char *argv[])
