@@ -55,3 +55,42 @@ Vec2& Vec2::operator /= (float d){
 		y /= d;
 	}
 }
+
+
+// define free operator functions, with new vector as return
+Vec2 operator+(Vec2 const& u, Vec2 const& v){
+	Vec2 w {u.x + v.x, u.y + v.y};
+	return w;
+}
+
+Vec2 operator-(Vec2 const& u, Vec2 const& v){
+	Vec2 w {u.x - v.x, u.y - v.y};
+	return w;
+}
+
+Vec2 operator*(Vec2 const& v, float f){
+	Vec2 w {v.x * f, v.y * f};
+	return w;
+}
+
+Vec2 operator/(Vec2 const& v, float f){
+	float x_;
+	float y_;
+
+	// catch division by 0
+	if(f != 0){
+		x_ = v.x/f;
+		y_ = v.y/f;
+	}
+	else{
+		x_ = 0.0f;
+		y_ = 0.0f;
+	}
+	Vec2 w {x_,y_};
+	return w;
+}
+
+Vec2 operator*(float f, Vec2 const& v){
+	Vec2 w {v.x * f, v.y * f};
+	return w;
+}

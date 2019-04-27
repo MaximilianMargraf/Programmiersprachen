@@ -27,6 +27,13 @@ struct Vec2{
 	Vec2& operator /=( float s );
 };
 
+// no member functions, instead free functions
+Vec2 operator+(Vec2 const& u, Vec2 const& v);
+Vec2 operator-(Vec2 const& u, Vec2 const& v);
+Vec2 operator*(Vec2 const& v, float f);
+Vec2 operator/(Vec2 const& v, float f);
+Vec2 operator*(float f, Vec2 const& v);
+
 #endif //VEC2_HPP
 
 /*Include-Guards:
