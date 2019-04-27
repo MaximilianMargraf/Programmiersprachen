@@ -3,7 +3,7 @@
 
 struct Vec2{
 
-		// def constructor
+	// def constructor
 	Vec2();
 
 	// val constructor
@@ -19,6 +19,12 @@ struct Vec2{
 
 	float getX();
 	float getY();
+
+	// operators for 2d vectors declared
+	Vec2& operator +=( Vec2 const& v );
+	Vec2& operator -=( Vec2 const& v );
+	Vec2& operator *=( float s );
+	Vec2& operator /=( float s );
 };
 
 #endif //VEC2_HPP
