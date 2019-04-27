@@ -23,20 +23,38 @@ int main(int argc, char* argv[])
     // create colors
     Color crimson{220.0f/255.0f, 20.0f/255.0f, 60.0f/255.0f};
     Color silver{192.0f/255.0f, 192.0f/255.0f, 192.0f/255.0f};
+    Color darkOrchid{104.0f/255.0f, 34.0f/255.0f, 139.0f/255.0f};
+    Color chartreuse{127.0f/255.0f,255.0f/255.0f,0.0f/255.0f};
 
     // create circle
-    Vec2 center{500.0f, 400.0f};
-    float rad = 100.0f;
-    Circle circ{center, rad, silver};
+    Vec2 center1{500.0f, 400.0f};
+    float rad1 = 100.0f;
+    Circle circ1{center1, rad1, silver};
+
+    Vec2 center2{700.0f, 300.0f};
+    float rad2 = 50.0f;
+    Circle circ2{center2, rad2, darkOrchid};
 
     // create rectangle
-    Vec2 min_{150.0f,432.0f};
-    Vec2 max_{272.0f, 241.0f};
-    Rectangle rect{min_, max_, crimson};
+    Vec2 min_1{150.0f,432.0f};
+    Vec2 max_1{272.0f, 241.0f};
+    Rectangle rect1{min_1, max_1, crimson};
 
-    bool left_pressed = win.get_mouse_button(GLFW_MOUSE_BUTTON_LEFT) == GLFW_PRESS;
+    Vec2 min_2{500.0f,550.0f};
+    Vec2 max_2{600.0f, 650.0f};
+    Rectangle rect2{min_2, max_2, chartreuse};
 
-    auto t = win.get_time();
+    // draw circle
+    circ1.draw(win);
+    circ2.draw(win, 5.0f);
+
+    // draw rectangle
+    rect1.draw(win);
+    rect2.draw(win, 10.0f);
+
+    /*bool left_pressed = win.get_mouse_button(GLFW_MOUSE_BUTTON_LEFT) == GLFW_PRESS;
+
+    //auto t = win.get_time();
 
     float x1 = 400.f + 380.f * std::sin(t);
     float y1 = 400.f + 380.f * std::cos(t);
@@ -64,21 +82,17 @@ int main(int argc, char* argv[])
 
     win.draw_line(mouse_position.first, 0, mouse_position.first, 10, 0.0, 0.0, 0.0);
     win.draw_line(mouse_position.first, win.window_size().second - 10, mouse_position.first, win.window_size().second, 0.0, 0.0, 0.0);
+    */
 
-    // draw circle
-    circ.draw(win);
 
-    // draw rectangle
-    rect.draw(win);
-
-    std::string display_text = "mouse position: (" + std::to_string(mouse_position.first) + ", " + std::to_string(mouse_position.second) + ")";
+    /*std::string display_text = "mouse position: (" + std::to_string(mouse_position.first) + ", " + std::to_string(mouse_position.second) + ")";
     
     int text_offset_x = 10;
     int text_offset_y = 5;
     unsigned int font_size = 35;
     
     win.draw_text(text_offset_x, text_offset_y, font_size, display_text);
-
+    */
 
     win.update();
   }

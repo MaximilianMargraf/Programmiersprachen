@@ -16,6 +16,7 @@ class Rectangle{
 
 		float circumference() const;
 		void draw(Window const& window) const;
+		void draw(Window const& window, float line) const;
 
 	private:
 		Color color;

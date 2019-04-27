@@ -65,3 +65,12 @@ void Circle::draw(Window const& window) const{
 		window.draw_line(start.x, start.y, end.x, end.y, color.r, color.g, color.b);
 	}
 }
+
+void Circle::draw(Window const& window, float line) const{
+	// make 360 small lines for clock
+	for (int i = 1; i <= 360; ++i) {
+		Vec2 start ((make_rotation_mat2(2 * M_PI * i / 360)) * Vec2(radius, 0) + position);
+		Vec2 end ((make_rotation_mat2(2 * M_PI * (i + 1) / 360)) * Vec2(radius, 0) + position);
+		window.draw_line(start.x, start.y, end.x, end.y, color.r, color.g, color.b, line);
+	}
+}
