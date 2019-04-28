@@ -74,3 +74,13 @@ void Circle::draw(Window const& window, float line) const{
 		window.draw_line(start.x, start.y, end.x, end.y, color.r, color.g, color.b, line);
 	}
 }
+
+bool Circle::is_inside(Vec2 const& vec) const{
+	float distance = abs(sqrt(pow(vec.x - position.x,2) + pow(vec.y - position.y,2)));
+	if(distance <= radius){
+		return true;
+	}
+	else{
+		return false;
+	}
+}

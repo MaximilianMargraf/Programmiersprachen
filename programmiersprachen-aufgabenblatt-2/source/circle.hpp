@@ -19,6 +19,7 @@ class Circle{
 		Circle(Vec2 const& pos, Color const& color);
 		Circle(Vec2 const& pos, float rad, Color const& color);
 
+		bool is_inside(Vec2 const& vec) const;
 		float circumference() const;
 		void draw(Window const& window) const;
 		void draw(Window const& window, float line) const;

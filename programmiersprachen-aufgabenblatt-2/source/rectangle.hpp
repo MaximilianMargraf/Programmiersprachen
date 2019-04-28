@@ -14,6 +14,7 @@ class Rectangle{
 		Rectangle(Vec2 const& min_, Vec2 const& max_);
 		Rectangle(Vec2 const& min_, Vec2 const& max_, Color const& color);
 
+		bool is_inside(Vec2 const& vec) const;
 		float circumference() const;
 		void draw(Window const& window) const;
 		void draw(Window const& window, float line) const;
