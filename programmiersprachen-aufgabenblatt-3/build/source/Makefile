@@ -111,21 +111,6 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
-source/CMakeFiles/tests.dir/rule:
-	cd /home/lyrrok/Documents/Programmiersprachen/programmiersprachen-aufgabenblatt-3/build && $(MAKE) -f CMakeFiles/Makefile2 source/CMakeFiles/tests.dir/rule
-.PHONY : source/CMakeFiles/tests.dir/rule
-
-# Convenience name for target.
-tests: source/CMakeFiles/tests.dir/rule
-
-.PHONY : tests
-
-# fast build rule for target.
-tests/fast:
-	cd /home/lyrrok/Documents/Programmiersprachen/programmiersprachen-aufgabenblatt-3/build && $(MAKE) -f source/CMakeFiles/tests.dir/build.make source/CMakeFiles/tests.dir/build
-.PHONY : tests/fast
-
-# Convenience name for target.
 source/CMakeFiles/aufgabe-3-2.dir/rule:
 	cd /home/lyrrok/Documents/Programmiersprachen/programmiersprachen-aufgabenblatt-3/build && $(MAKE) -f CMakeFiles/Makefile2 source/CMakeFiles/aufgabe-3-2.dir/rule
 .PHONY : source/CMakeFiles/aufgabe-3-2.dir/rule
@@ -139,6 +124,36 @@ aufgabe-3-2: source/CMakeFiles/aufgabe-3-2.dir/rule
 aufgabe-3-2/fast:
 	cd /home/lyrrok/Documents/Programmiersprachen/programmiersprachen-aufgabenblatt-3/build && $(MAKE) -f source/CMakeFiles/aufgabe-3-2.dir/build.make source/CMakeFiles/aufgabe-3-2.dir/build
 .PHONY : aufgabe-3-2/fast
+
+# Convenience name for target.
+source/CMakeFiles/aufgabe-3-4.dir/rule:
+	cd /home/lyrrok/Documents/Programmiersprachen/programmiersprachen-aufgabenblatt-3/build && $(MAKE) -f CMakeFiles/Makefile2 source/CMakeFiles/aufgabe-3-4.dir/rule
+.PHONY : source/CMakeFiles/aufgabe-3-4.dir/rule
+
+# Convenience name for target.
+aufgabe-3-4: source/CMakeFiles/aufgabe-3-4.dir/rule
+
+.PHONY : aufgabe-3-4
+
+# fast build rule for target.
+aufgabe-3-4/fast:
+	cd /home/lyrrok/Documents/Programmiersprachen/programmiersprachen-aufgabenblatt-3/build && $(MAKE) -f source/CMakeFiles/aufgabe-3-4.dir/build.make source/CMakeFiles/aufgabe-3-4.dir/build
+.PHONY : aufgabe-3-4/fast
+
+# Convenience name for target.
+source/CMakeFiles/tests.dir/rule:
+	cd /home/lyrrok/Documents/Programmiersprachen/programmiersprachen-aufgabenblatt-3/build && $(MAKE) -f CMakeFiles/Makefile2 source/CMakeFiles/tests.dir/rule
+.PHONY : source/CMakeFiles/tests.dir/rule
+
+# Convenience name for target.
+tests: source/CMakeFiles/tests.dir/rule
+
+.PHONY : tests
+
+# fast build rule for target.
+tests/fast:
+	cd /home/lyrrok/Documents/Programmiersprachen/programmiersprachen-aufgabenblatt-3/build && $(MAKE) -f source/CMakeFiles/tests.dir/build.make source/CMakeFiles/tests.dir/build
+.PHONY : tests/fast
 
 aufgabe-3-2.o: aufgabe-3-2.cpp.o
 
@@ -167,6 +182,60 @@ aufgabe-3-2.cpp.s:
 	cd /home/lyrrok/Documents/Programmiersprachen/programmiersprachen-aufgabenblatt-3/build && $(MAKE) -f source/CMakeFiles/aufgabe-3-2.dir/build.make source/CMakeFiles/aufgabe-3-2.dir/aufgabe-3-2.cpp.s
 .PHONY : aufgabe-3-2.cpp.s
 
+aufgabe-3-4.o: aufgabe-3-4.cpp.o
+
+.PHONY : aufgabe-3-4.o
+
+# target to build an object file
+aufgabe-3-4.cpp.o:
+	cd /home/lyrrok/Documents/Programmiersprachen/programmiersprachen-aufgabenblatt-3/build && $(MAKE) -f source/CMakeFiles/aufgabe-3-4.dir/build.make source/CMakeFiles/aufgabe-3-4.dir/aufgabe-3-4.cpp.o
+.PHONY : aufgabe-3-4.cpp.o
+
+aufgabe-3-4.i: aufgabe-3-4.cpp.i
+
+.PHONY : aufgabe-3-4.i
+
+# target to preprocess a source file
+aufgabe-3-4.cpp.i:
+	cd /home/lyrrok/Documents/Programmiersprachen/programmiersprachen-aufgabenblatt-3/build && $(MAKE) -f source/CMakeFiles/aufgabe-3-4.dir/build.make source/CMakeFiles/aufgabe-3-4.dir/aufgabe-3-4.cpp.i
+.PHONY : aufgabe-3-4.cpp.i
+
+aufgabe-3-4.s: aufgabe-3-4.cpp.s
+
+.PHONY : aufgabe-3-4.s
+
+# target to generate assembly for a file
+aufgabe-3-4.cpp.s:
+	cd /home/lyrrok/Documents/Programmiersprachen/programmiersprachen-aufgabenblatt-3/build && $(MAKE) -f source/CMakeFiles/aufgabe-3-4.dir/build.make source/CMakeFiles/aufgabe-3-4.dir/aufgabe-3-4.cpp.s
+.PHONY : aufgabe-3-4.cpp.s
+
+circle.o: circle.cpp.o
+
+.PHONY : circle.o
+
+# target to build an object file
+circle.cpp.o:
+	cd /home/lyrrok/Documents/Programmiersprachen/programmiersprachen-aufgabenblatt-3/build && $(MAKE) -f source/CMakeFiles/aufgabe-3-4.dir/build.make source/CMakeFiles/aufgabe-3-4.dir/circle.cpp.o
+.PHONY : circle.cpp.o
+
+circle.i: circle.cpp.i
+
+.PHONY : circle.i
+
+# target to preprocess a source file
+circle.cpp.i:
+	cd /home/lyrrok/Documents/Programmiersprachen/programmiersprachen-aufgabenblatt-3/build && $(MAKE) -f source/CMakeFiles/aufgabe-3-4.dir/build.make source/CMakeFiles/aufgabe-3-4.dir/circle.cpp.i
+.PHONY : circle.cpp.i
+
+circle.s: circle.cpp.s
+
+.PHONY : circle.s
+
+# target to generate assembly for a file
+circle.cpp.s:
+	cd /home/lyrrok/Documents/Programmiersprachen/programmiersprachen-aufgabenblatt-3/build && $(MAKE) -f source/CMakeFiles/aufgabe-3-4.dir/build.make source/CMakeFiles/aufgabe-3-4.dir/circle.cpp.s
+.PHONY : circle.cpp.s
+
 tests.o: tests.cpp.o
 
 .PHONY : tests.o
@@ -194,22 +263,59 @@ tests.cpp.s:
 	cd /home/lyrrok/Documents/Programmiersprachen/programmiersprachen-aufgabenblatt-3/build && $(MAKE) -f source/CMakeFiles/tests.dir/build.make source/CMakeFiles/tests.dir/tests.cpp.s
 .PHONY : tests.cpp.s
 
+vec2.o: vec2.cpp.o
+
+.PHONY : vec2.o
+
+# target to build an object file
+vec2.cpp.o:
+	cd /home/lyrrok/Documents/Programmiersprachen/programmiersprachen-aufgabenblatt-3/build && $(MAKE) -f source/CMakeFiles/aufgabe-3-4.dir/build.make source/CMakeFiles/aufgabe-3-4.dir/vec2.cpp.o
+.PHONY : vec2.cpp.o
+
+vec2.i: vec2.cpp.i
+
+.PHONY : vec2.i
+
+# target to preprocess a source file
+vec2.cpp.i:
+	cd /home/lyrrok/Documents/Programmiersprachen/programmiersprachen-aufgabenblatt-3/build && $(MAKE) -f source/CMakeFiles/aufgabe-3-4.dir/build.make source/CMakeFiles/aufgabe-3-4.dir/vec2.cpp.i
+.PHONY : vec2.cpp.i
+
+vec2.s: vec2.cpp.s
+
+.PHONY : vec2.s
+
+# target to generate assembly for a file
+vec2.cpp.s:
+	cd /home/lyrrok/Documents/Programmiersprachen/programmiersprachen-aufgabenblatt-3/build && $(MAKE) -f source/CMakeFiles/aufgabe-3-4.dir/build.make source/CMakeFiles/aufgabe-3-4.dir/vec2.cpp.s
+.PHONY : vec2.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
-	@echo "... edit_cache"
-	@echo "... rebuild_cache"
-	@echo "... tests"
 	@echo "... aufgabe-3-2"
+	@echo "... aufgabe-3-4"
+	@echo "... edit_cache"
+	@echo "... tests"
+	@echo "... rebuild_cache"
 	@echo "... aufgabe-3-2.o"
 	@echo "... aufgabe-3-2.i"
 	@echo "... aufgabe-3-2.s"
+	@echo "... aufgabe-3-4.o"
+	@echo "... aufgabe-3-4.i"
+	@echo "... aufgabe-3-4.s"
+	@echo "... circle.o"
+	@echo "... circle.i"
+	@echo "... circle.s"
 	@echo "... tests.o"
 	@echo "... tests.i"
 	@echo "... tests.s"
+	@echo "... vec2.o"
+	@echo "... vec2.i"
+	@echo "... vec2.s"
 .PHONY : help
 
 
