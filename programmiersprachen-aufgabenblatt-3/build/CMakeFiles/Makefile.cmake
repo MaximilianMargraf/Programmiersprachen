@@ -70,4 +70,5 @@ set(CMAKE_DEPEND_INFO_FILES
   "source/CMakeFiles/aufgabe-3-2.dir/DependInfo.cmake"
   "source/CMakeFiles/aufgabe-3-4.dir/DependInfo.cmake"
   "source/CMakeFiles/tests.dir/DependInfo.cmake"
+  "source/CMakeFiles/aufgabe-3-6.dir/DependInfo.cmake"
   )

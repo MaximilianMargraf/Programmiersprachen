@@ -28,7 +28,9 @@ class Circle{
 
 		friend std::ostream& operator<< (std::ostream& os, Circle const& circle);
 		friend bool operator == (Circle const& c1, std::string const& s);
+		friend bool operator ==(Circle const& c1, Circle const& c2);
 		friend bool operator <(Circle const& c1, Circle const& c2);
+		friend bool operator >(Circle const& c1, Circle const& c2);
 
 	private:
 		Color color;

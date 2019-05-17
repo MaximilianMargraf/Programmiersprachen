@@ -99,8 +99,26 @@ bool operator== (Circle const& c1, std::string const& s){
 	}
 }
 
+bool operator== (Circle const& c1, Circle const& c2){
+	if(c1.radius == c2.radius){
+		return true;
+	}
+	else{
+		return false;
+	}
+}
+
 bool operator< (Circle const& c1, Circle const& c2){
 	if(c1.radius < c2.radius){
+		return true;
+	}
+	else{
+		return false;
+	}
+}
+
+bool operator> (Circle const& c1, Circle const& c2){
+	if(c1.radius > c2.radius){
 		return true;
 	}
 	else{

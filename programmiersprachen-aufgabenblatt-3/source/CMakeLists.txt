@@ -15,3 +15,11 @@ add_executable(aufgabe-3-4
   circle.cpp
   aufgabe-3-4
   )
+
+# Build Aufgabe 3-6
+add_executable(aufgabe-3-6
+  color.hpp
+  vec2.cpp
+  circle.cpp
+  aufgabe-3-6
+  )

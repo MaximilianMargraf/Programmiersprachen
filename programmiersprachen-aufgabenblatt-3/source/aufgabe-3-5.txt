@@ -1,0 +1,8 @@
+std::map<string, int> matrikelnummern;
+
+matrikelnummern["Max Mustermann"] = 12345;
+matrikelnummern["Erika Mustermann"] = 23453;
+
+exmatrikulation(matrikelnummern["Fred Fuchs"]);
+
+The operator [] looks for a matching element in the map. If there is no matching element a new element will be inserted. If there is no Fred Fuchs, a new entry will be added just to be deleted again.
