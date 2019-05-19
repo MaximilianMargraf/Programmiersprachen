@@ -5,9 +5,7 @@
 #include <string>
 #include <vector>
 
-
-TEST_CASE ("Circle sort via lambda function", "[Circle]"){
-	//srand(time(NULL));
+TEST_CASE ("vector add elements", "[vector]"){
 	std::vector<int>v_1{1, 2, 3, 4, 5, 6, 7, 8, 9};
 	std::vector<int>v_2{9, 8, 7, 6, 5, 4, 3, 2, 1};
 	std::vector<int>v_3(9);
