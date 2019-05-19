@@ -9,6 +9,13 @@
 #include "color.hpp"
 #include "vec2.hpp"
 
+/*
+Why use lambdas?
+A lambda expression is a syntactic shortcut for a functor
+Thus, like functors, lambdas can contain a state and are therefore
+customizeable.
+*/
+
 void fill_vector(std::vector<Circle>&);
 
 TEST_CASE ("Circle sort via lambda function", "[Circle]"){
