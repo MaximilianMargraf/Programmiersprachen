@@ -19,7 +19,6 @@ customizeable.
 void fill_vector(std::vector<Circle>&);
 
 TEST_CASE ("Circle sort via lambda function", "[Circle]"){
-	//srand(time(NULL));
 	std::vector<Circle> v;
 	fill_vector(v);
 
