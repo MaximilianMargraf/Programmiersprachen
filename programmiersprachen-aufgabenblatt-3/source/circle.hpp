@@ -17,6 +17,7 @@ class Circle{
 		Circle(float rad);
 		Circle(Vec2 const& pos);
 		Circle(float rad, Color const& color);
+		Circle(float rad, std::string name);
 		Circle(Vec2 const& pos, float rad);
 		Circle(Vec2 const& pos, Color const& color);
 		Circle(Vec2 const& pos, float rad, Color const& color);
@@ -24,7 +25,6 @@ class Circle{
 
 		bool is_inside(Vec2 const& vec) const;
 		float circumference() const;
-
 
 		friend std::ostream& operator<< (std::ostream& os, Circle const& circle);
 		friend bool operator == (Circle const& c1, std::string const& s);

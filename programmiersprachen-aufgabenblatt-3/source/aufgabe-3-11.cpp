@@ -1,7 +1,7 @@
-# define CATCH_CONFIG_RUNNER
-# include <catch.hpp>
-# include <cmath>
-# include <algorithm>
+#define CATCH_CONFIG_RUNNER
+#include <catch.hpp>
+#include <cmath>
+#include <algorithm>
 
 bool is_multiple_of_3(unsigned int);
 bool is_not_multiple_of_3(unsigned int);
@@ -9,8 +9,7 @@ bool is_not_multiple_of_3(unsigned int);
 void fill_u_i_vector(std::vector<unsigned int>&);
 void print(std::vector<unsigned int>&);
 
-TEST_CASE("filter alle vielfache von drei", "[erase]")
-{
+TEST_CASE("filter alle vielfache von drei", "[erase]"){
 	std::vector<unsigned int> v;
 	fill_u_i_vector(v);
 
@@ -23,6 +22,7 @@ TEST_CASE("filter alle vielfache von drei", "[erase]")
 		std::remove_if(v.begin(), v.end(), is_not_multiple_of_3),
 		v.end());
 
+	// test it
 	REQUIRE (std::all_of(v.begin(), v.end(), is_multiple_of_3));
 }
 

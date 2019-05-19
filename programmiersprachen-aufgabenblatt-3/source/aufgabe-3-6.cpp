@@ -48,6 +48,10 @@ TEST_CASE ("describe_CircleSort", "[Circle]"){
 
   std::sort(sorted_circles.begin(), sorted_circles.end());
 
+  for(Circle c : sorted_circles){
+    print(c);
+  }
+
   REQUIRE(std::is_sorted(sorted_circles.begin(), sorted_circles.end()));
 }
 

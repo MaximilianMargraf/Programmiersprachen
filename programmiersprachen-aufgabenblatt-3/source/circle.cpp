@@ -16,7 +16,7 @@ Circle::Circle(Color const& color):
 
 Circle::Circle(float rad):
 	position{0.0f, 0.0f},
-	radius{radius},
+	radius{rad},
 	color{},
 	name{""}
 	{}
@@ -33,6 +33,13 @@ Circle::Circle(float rad, Color const& color):
 	radius{rad},
 	color{color},
 	name{""}
+	{}
+
+Circle::Circle(float rad, std::string name_):
+	position{0.0f, 0.0f},
+	radius{rad},
+	color{},
+	name{name_}
 	{}
 
 Circle::Circle(Vec2 const& pos, float rad):
@@ -129,6 +136,7 @@ bool operator> (Circle const& c1, Circle const& c2){
 std::ostream& operator<< (std::ostream& os, Circle const& c){
 	os <<	"Name: "<<c.name<<
 			"\nCoordinates: X "<<c.position.x<<", Y "<<c.position.y<<
+			"\nRadius: "<<c.radius<<
 			"\nColor: Name "<<c.color.name <<", R "<<c.color.r<<", G "<<c.color.g<<", B "<<c.color.b<<"\n";
 	return os;
 }

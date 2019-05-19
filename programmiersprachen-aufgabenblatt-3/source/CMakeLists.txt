@@ -19,6 +19,14 @@ add_executable(aufgabe-3-6
   aufgabe-3-6.cpp
   )
 
+# Build Aufgabe 3-7
+  add_executable(aufgabe-3-7
+  color.hpp
+  vec2.cpp
+  circle.cpp
+  aufgabe-3-7.cpp
+  )
+
 # Build Aufgabe 3-9
   add_executable(aufgabe-3-9
   aufgabe-3-9.cpp
