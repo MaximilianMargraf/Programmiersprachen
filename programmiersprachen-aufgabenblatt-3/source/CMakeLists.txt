@@ -3,11 +3,6 @@ add_executable(aufgabe-3-2
   aufgabe-3-2.cpp
   )
 
-# Build tests
-add_executable(tests
-  tests.cpp
-  )
-
 # Build Aufgabe 3-4
 add_executable(aufgabe-3-4
   color.hpp
@@ -32,4 +27,9 @@ add_executable(aufgabe-3-6
 # Build Aufgabe 3-10
   add_executable(aufgabe-3-10
   aufgabe-3-10.cpp
+  )
+
+# Build Aufgabe 3-11
+  add_executable(aufgabe-3-11
+  aufgabe-3-11.cpp
   )
