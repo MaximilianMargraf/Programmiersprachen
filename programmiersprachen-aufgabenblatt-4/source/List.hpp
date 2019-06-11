@@ -116,6 +116,20 @@ class List{
 			last_ = nullptr;
 		}
 
+		List(List<T>& a){
+			ListNode<T>* n = a.first_;
+			size_ = sizeof(T);
+			first_ = nullptr;
+			last_ = nullptr;
+
+			while(n != nullptr){
+				push_back(n->value);
+				n = n->next;
+			}
+			n = nullptr;
+			delete n;
+		}
+
 		// constructor which takes a set of CSV data
 		List(std::initializer_list<T> ini_list){
 			size_ = sizeof(T);
@@ -259,7 +273,6 @@ class List{
 			else{
 				ListNode<T>* a = first_;
 				ListNode<T>* b = rhs.first_;
-				std::cout<<"Size of list: "<<size()<<"\n";
 				while(a != nullptr){
 					if(a->value != b->value){
 						return false;
@@ -284,7 +297,6 @@ class List{
 			else{
 				ListNode<T>* a = first_;
 				ListNode<T>* b = rhs.first_;
-				std::cout<<"Size of list: "<<size()<<"\n";
 				while(a != nullptr){
 					if(a->value == b->value){
 						return false;
