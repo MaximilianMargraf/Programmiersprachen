@@ -13,8 +13,7 @@ TEST_CASE ("test_default_constructors", "[DefaultConstructor]"){
 	REQUIRE(list.size() == 0);
 }
 
-TEST_CASE ("add an element with push_front", "[ modifiers ]")
-{
+TEST_CASE ("add an element with push_front", "[ modifiers ]"){
 	List<int> list;
 	list.push_front(42);
 	REQUIRE(42==list.front());
@@ -31,8 +30,7 @@ TEST_CASE ("add an element with push_front", "[ modifiers ]")
 	REQUIRE(20==lost.back());
 }
 
-TEST_CASE ("add an element with push_back", "[modifiers]")
-{
+TEST_CASE ("add an element with push_back", "[modifiers]"){
 	List<int> list;
 	list.push_back(55);
 	REQUIRE(55==list.front());
@@ -45,8 +43,7 @@ TEST_CASE ("add an element with push_back", "[modifiers]")
 	REQUIRE(list.size() == 2);
 }
 
-TEST_CASE ("delete an element with pop_front", "[modifiers]")
-{
+TEST_CASE ("delete an element with pop_front", "[modifiers]"){
 	List<int> list;
 	list.push_front(55);
 	list.pop_front();
@@ -64,8 +61,7 @@ TEST_CASE ("delete an element with pop_front", "[modifiers]")
 	REQUIRE(list.empty());
 }
 
-TEST_CASE ("delete an element with pop_back", "[modifiers]")
-{
+TEST_CASE ("delete an element with pop_back", "[modifiers]"){
 	List<int> list;
 	list.push_front(55);
 	list.pop_back();
@@ -83,8 +79,7 @@ TEST_CASE ("delete an element with pop_back", "[modifiers]")
 	REQUIRE(list.empty());
 }
 
-TEST_CASE ("should be empty after clearing", "[modifiers]")
-{
+TEST_CASE ("should be empty after clearing", "[modifiers]"){
 	List<int> list;
 	list.push_front(55);
 	list.push_front(44);
@@ -93,8 +88,7 @@ TEST_CASE ("should be empty after clearing", "[modifiers]")
 	REQUIRE(list.empty());
 }
 
-TEST_CASE ("Test own iterator", "[iterator]")
-{
+TEST_CASE ("Test own iterator", "[iterator]"){
 	List<Circle> circle_list;
 	Circle c1 {1, "Number One"};
 	Circle c2 {2, "Number Two"};
@@ -120,6 +114,21 @@ TEST_CASE ("Test own iterator", "[iterator]")
 	REQUIRE(c_if != c_it);
 	c_if++;
 	REQUIRE(c_if == c_it);
+}
+
+TEST_CASE("should be an empty range after default construction", "[iterator]"){
+	List<int> list;
+	auto b = list.begin();
+	auto e = list.end();
+	REQUIRE(b.node == nullptr);
+	REQUIRE(e.node == nullptr);
+}
+
+
+TEST_CASE("provide access to the first element with begin", "[iterator]"){
+	List<int> list;
+	list.push_front(42);
+	REQUIRE(42 == *list.begin());
 }
 
 int main(int argc, char *argv[])

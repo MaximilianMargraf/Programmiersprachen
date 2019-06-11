@@ -59,11 +59,21 @@ struct ListIterator{
 	}
 
 	bool operator==(ListIterator<T> const& x) const{
-		if(**this == *x){
-			return true;
+		if(node != nullptr && x.node != nullptr){
+			if(**this == *x){
+				return true;
+			}
+			else{
+				return false;
+			}
 		}
 		else{
-			return false;
+			if(node==nullptr && x.node == nullptr){
+				return true;
+			}
+			else{
+				return false;
+			}
 		}
 	}
 
@@ -126,7 +136,7 @@ class List{
 
 		ListIterator<T> end(){
 			ListIterator<T> a;
-			a.node =nullptr;
+			a.node = nullptr;
 			return a;
 		}
 
