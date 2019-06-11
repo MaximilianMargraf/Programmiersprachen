@@ -251,10 +251,59 @@ class List{
 			return c;
 		}
 
+		bool operator==(List<T> const& rhs){
+			if(size() != rhs.size()){
+				return false;
+			}
+
+			else{
+				ListNode<T>* a = first_;
+				ListNode<T>* b = rhs.first_;
+				std::cout<<"Size of list: "<<size()<<"\n";
+				while(a != nullptr){
+					if(a->value != b->value){
+						return false;
+					}
+					a = a->next;
+					b = b->next;
+				}
+				a = nullptr;
+				delete a;
+				b = nullptr;
+				delete b;
+
+				return true;
+			}
+		}
+
+		bool operator!=(List<T> const& rhs){
+			if(size()!=rhs.size()){
+				return true;
+			}
+
+			else{
+				ListNode<T>* a = first_;
+				ListNode<T>* b = rhs.first_;
+				std::cout<<"Size of list: "<<size()<<"\n";
+				while(a != nullptr){
+					if(a->value == b->value){
+						return false;
+					}
+					a = a->next;
+					b = b->next;
+				}
+				a = nullptr;
+				delete a;
+				b = nullptr;
+				delete b;
+
+				return true;
+			}
+		}
+
 	private:
 		std::size_t size_;
 		ListNode<T>* first_;
 		ListNode<T>* last_;
 };
-
 #endif //LIST_HPP

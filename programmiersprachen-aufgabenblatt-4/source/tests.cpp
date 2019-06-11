@@ -124,12 +124,52 @@ TEST_CASE("should be an empty range after default construction", "[iterator]"){
 	REQUIRE(e.node == nullptr);
 }
 
-
 TEST_CASE("provide access to the first element with begin", "[iterator]"){
 	List<int> list;
 	list.push_front(42);
 	REQUIRE(42 == *list.begin());
 }
+
+TEST_CASE("test comparisons of 2 lists with different sizes", "[lists]"){
+	List<int> list;
+	list.push_front(42);
+
+	List<int> lost;
+	lost.push_front(44);
+	lost.push_front(43);
+	REQUIRE(list != lost);
+}
+
+TEST_CASE("test comparisons of 2 lists with same sizes and same values", "[lists]"){
+	List<int> list;
+	list.push_front(42);
+	list.push_front(43);
+
+	List<int> lost;
+	lost.push_front(42);
+	lost.push_front(43);
+	REQUIRE(list == lost);
+	lost.push_front(45);
+	bool eq = (list==lost);
+	REQUIRE(!eq);
+}
+
+TEST_CASE("test comparisons of 2 lists with same sizes and different values", "[lists]"){
+	List<int> list;
+	list.push_front(1);
+	list.push_front(2);
+	list.push_front(3);
+
+	List<int> lost;
+	lost.push_front(2);
+	lost.push_front(3);
+	lost.push_front(4);
+	REQUIRE(list != lost);
+	lost.push_front(5);
+	bool eq = (list==lost);
+	REQUIRE(!eq);
+}
+
 
 int main(int argc, char *argv[])
 {
