@@ -28,29 +28,53 @@ struct ListIterator{
 	using difference_type = ptrdiff_t;
 	using iterator_category = std::bidirectional_iterator_tag;
 
-	/*T& operator*() const{
-		return{};
+	// return value of pointer with deref.
+	T& operator*() const{ 
+		return node->value;
 	}
 
+	// return pointer to iterator content
 	T* operator->() const{
-		return nullptr;
+		T* t = &node->value;
+		return t;
 	}
 
+	// increase to next iterator and give old position back
 	ListIterator<T>& operator++(){
-		return {};
+		if(node->next != nullptr){
+			node = node->next;
+			return *this;
+		}
+		else{
+			return *this;
+		}
 	}
 
-	ListIterator<T> operator++(){
-		return{};
+	// increase to next position but give old position back
+	ListIterator<T> operator++(int){
+		ListIterator<T> a;
+		a.node = node;
+		node = node->next;
+		return a;
 	}
 
 	bool operator==(ListIterator<T> const& x) const{
-		return true;
+		if(**this == *x){
+			return true;
+		}
+		else{
+			return false;
+		}
 	}
 
 	bool operator!=(ListIterator<T> const& x) const{
-		return false;
-	}*/
+		if(**this != *x){
+			return true;
+		}
+		else{
+			return false;
+		}
+	}
 
 	ListIterator<T> next() const{
 		if(nullptr != node){
@@ -62,7 +86,7 @@ struct ListIterator{
 	}
 
 	// pointer to current node
-	ListNode <T>* node = nullptr;
+	ListNode<T>* node = nullptr;
 };
 
 template <class T>
@@ -87,12 +111,24 @@ class List{
 			size_ = sizeof(T);
 			first_ = nullptr;
 			last_ = nullptr;
+			for(auto a : ini_list){
+				push_back(a);
+			}
 		}
 
-		~List(){}
+		~List(){clear();}
 
-		ListIterator<T> begin(){}
-		ListIterator<T> end(){}
+		ListIterator<T> begin(){
+			ListIterator<T> a;
+			a.node = first_;
+			return a;
+		}
+
+		ListIterator<T> end(){
+			ListIterator<T> a;
+			a.node =nullptr;
+			return a;
+		}
 
 		void clear(){
 			ListNode<T>* a = first_;

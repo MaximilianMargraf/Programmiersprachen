@@ -2,6 +2,7 @@
 #include <catch.hpp>
 #include<math.h>
 
+#include "circle.hpp"
 #include "List.hpp"
 
 // test 2d vector
@@ -24,6 +25,10 @@ TEST_CASE ("add an element with push_front", "[ modifiers ]")
 	REQUIRE(33==list.front());
 	REQUIRE(42==list.back());
 	REQUIRE(list.size() == 2);
+
+	List<int> lost{2, 20};
+	REQUIRE(2==lost.front());
+	REQUIRE(20==lost.back());
 }
 
 TEST_CASE ("add an element with push_back", "[modifiers]")
@@ -86,6 +91,35 @@ TEST_CASE ("should be empty after clearing", "[modifiers]")
 	list.push_back(66);
 	list.clear();
 	REQUIRE(list.empty());
+}
+
+TEST_CASE ("Test own iterator", "[iterator]")
+{
+	List<Circle> circle_list;
+	Circle c1 {1, "Number One"};
+	Circle c2 {2, "Number Two"};
+	Circle c3 {3, "Number Three"};
+	Circle c4 {3, "Number Four"};
+	circle_list.push_back(c1);
+	circle_list.push_back(c2);
+	circle_list.push_back(c3);
+	circle_list.push_back(c4);
+
+	auto c_it = circle_list.begin();
+
+	// check if the dereferenced iterator equals the circle object.
+	REQUIRE(*c_it == c1);
+	REQUIRE(c_it->get_radius()==1);
+	
+	++c_it;
+	REQUIRE(c_it->get_radius() == 2);
+
+	auto c_if = c_it++;
+	REQUIRE(*c_if == c2);
+	REQUIRE(*c_it == c3);
+	REQUIRE(c_if != c_it);
+	c_if++;
+	REQUIRE(c_if == c_it);
 }
 
 int main(int argc, char *argv[])
