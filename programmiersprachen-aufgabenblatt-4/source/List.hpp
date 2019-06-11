@@ -13,7 +13,7 @@ class List;
 template <class T>
 struct ListNode {
 	// value of this node, with standard constructor of T
-	T value = T ();
+	T value = T();
 	// pointer to previous and next object in list
 	ListNode* prev = nullptr;
 	ListNode* next = nullptr;
@@ -93,21 +93,95 @@ class List{
 
 		ListIterator<T> begin(){}
 		ListIterator<T> end(){}
-		void clear(){}
-		void push_front(T const& element){}
-		void push_back(T const& element){}
-		void pop_front(){}
-		void pop_back(){}
 
-		/*T& front(){
+		void clear(){
+			ListNode<T>* a = first_;
+			while(a != nullptr){
+				a = a->next;
+				pop_front();
+			}
+		}
+
+		// add element at the front of the list
+		void push_front(T const& element){
+			// create pointer to new ListNode
+			ListNode<T>* a;
+			a = new ListNode<T>();
+			a->value = element;
+
+			// if there are no other elements
+			if(empty()){
+				first_ = a;
+				last_ = a;
+			}
+			// if there are other elements
+			else{
+				first_->prev = a;
+				a->next = first_;
+				first_ = a;
+			}
+		}
+
+		void push_back(T const& element){
+			// create pointer to new ListNode
+			ListNode<T>* a;
+			a = new ListNode<T>();
+			a->value = element;
+
+			// if there are no other elements
+			if(empty()){
+				first_ = a;
+				last_ = a;
+			}
+			// if there are other elements
+			else{
+				last_->next = a;
+				a->prev = last_;
+				last_ = a;
+			}
+		}
+
+		void pop_front(){
+			// the list has at least 2 entries
+			if(first_ != last_){
+				ListNode<T>* a = first_->next;
+				a->prev = nullptr;
+				delete first_;
+				first_ = a;
+			}
+			// 1 entry remaining
+			else if(first_ == last_ && last_ != nullptr){
+				first_ = nullptr;
+				delete last_;
+				last_ = nullptr;
+			}
+		}
+
+		void pop_back(){
+			// the list has at least 2 entries
+			if(first_ != last_){
+				ListNode<T>* a = last_->prev;
+				a->next = nullptr;
+				delete last_;
+				last_ = a;
+			}
+			// 1 entry remaining
+			else if(first_ == last_ && last_ != nullptr){
+				last_ = nullptr;
+				delete first_;
+				first_ = nullptr;
+			}
+		}
+
+		T& front(){
 			assert(!empty());
-			return T();
-		}*/
+			return first_->value;
+		}
 
-		/*T& back(){
-			assert(!empty())
-			return T();
-		}*/
+		T& back(){
+			assert(!empty());
+			return last_->value;
+		}
 
 		// check if list is empty
 		bool empty() const{
@@ -120,7 +194,15 @@ class List{
 		}
 
 		std::size_t size() const{
-			return std::distance(first_, last_);
+			ListNode<T>* a = first_;
+			unsigned int c = 0;
+			while(a != nullptr){
+				c += 1;
+				a = a->next;
+			}
+			a = nullptr;
+			delete a;
+			return c;
 		}
 
 	private:
