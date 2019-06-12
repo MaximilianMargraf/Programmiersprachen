@@ -116,18 +116,28 @@ class List{
 			last_ = nullptr;
 		}
 
-		List(List<T>& a){
+		// copy constructor
+		List(List<T> const& a){
 			ListNode<T>* n = a.first_;
 			size_ = sizeof(T);
 			first_ = nullptr;
 			last_ = nullptr;
 
 			while(n != nullptr){
-				push_back(n->value);
+				T t = n->value;
+				push_back(t);
 				n = n->next;
 			}
 			n = nullptr;
 			delete n;
+		}
+
+		// move constructor
+		List(List<T>&& rhs){
+			first_ = rhs.first_;
+			last_ = rhs.last_;
+			rhs.first_ = nullptr;
+			rhs.last_ = nullptr;
 		}
 
 		// constructor which takes a set of CSV data
@@ -346,7 +356,6 @@ class List{
 
 			ListIterator<T> iter;
 			iter.node = a;
-			print();
 			return iter;
 		}
 

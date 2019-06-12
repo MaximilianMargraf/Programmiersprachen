@@ -1,6 +1,7 @@
 #define CATCH_CONFIG_RUNNER
 #include <catch.hpp>
-#include<math.h>
+#include <algorithm>
+#include <vector>
 
 #include "circle.hpp"
 #include "List.hpp"
@@ -219,6 +220,31 @@ TEST_CASE("reverse list", "[reverse]"){
 	// test method
 	REQUIRE(list == list2);
 	REQUIRE(list == list3);
+}
+
+/*TEST_CASE("std::copy", "[optional]"){
+	List<int> list;
+	list.push_front(1);
+	list.push_front(2);
+	list.push_front(3);
+	list.push_front(4);
+
+	std::vector<int> v;
+	std::copy(list.begin(), list.end(), std::back_inserter(v));
+	//std::copy(v.begin(), v.end(), std::ostream_iterator<int>(std::cout, " "));
+	//std::cout << "\n";
+}*/
+
+TEST_CASE("move constructor", "[constructor]"){
+	List<int> list;
+	list.push_front(1);
+	list.push_front(2);
+	list.push_front(3);
+	list.push_front(4);
+	List<int> list2 = std::move(list);
+	REQUIRE(0 == list.size());
+	REQUIRE(list.empty());
+	REQUIRE(4==list2.size());
 }
 
 int main(int argc, char *argv[])
