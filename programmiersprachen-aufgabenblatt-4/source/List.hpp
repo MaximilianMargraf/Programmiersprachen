@@ -271,11 +271,12 @@ class List{
 			}
 
 			else{
+				bool eq = true;
 				ListNode<T>* a = first_;
 				ListNode<T>* b = rhs.first_;
 				while(a != nullptr){
 					if(a->value != b->value){
-						return false;
+						eq = true;
 					}
 					a = a->next;
 					b = b->next;
@@ -285,7 +286,10 @@ class List{
 				b = nullptr;
 				delete b;
 
-				return true;
+				if(eq)
+					return true;
+				else
+					return false;
 			}
 		}
 
@@ -313,9 +317,59 @@ class List{
 			}
 		}
 
+		void reverse(){
+			ListNode<T>* a = first_;
+			ListNode<T>* tmp = nullptr;
+			while(a!=nullptr){
+				tmp = a->prev;
+				a->prev = a->next;
+				a->next = tmp;
+				a = a->prev; 
+			}
+			tmp = first_;
+			first_ = last_;
+			last_ = tmp;
+			tmp = nullptr;
+			delete tmp;
+		}
+
+		ListIterator<T> insert(ListIterator<T>& it, T const& t){
+			// construct new node at position with given value
+			ListNode<T>* a;
+			a = new ListNode<T>();
+			a->value = t;
+			a->prev = it.node->prev;
+			a->next = it.node;
+
+			it.node->prev->next = a;
+			it.node->prev = a;
+
+			ListIterator<T> iter;
+			iter.node = a;
+			print();
+			return iter;
+		}
+
+		void print(){
+			ListNode<T>* a = first_;
+			std::cout<<"The list:\n";
+			while(a!=nullptr){
+				std::cout<<a->value<<"\n";
+				a = a->next;
+			}
+		}
+
 	private:
 		std::size_t size_;
 		ListNode<T>* first_;
 		ListNode<T>* last_;
 };
+
+template <class T>
+List<T>& reverse(List<T>& l){
+	l.reverse();
+	//List<T> rev{l};
+	return l;
+}
+
 #endif //LIST_HPP

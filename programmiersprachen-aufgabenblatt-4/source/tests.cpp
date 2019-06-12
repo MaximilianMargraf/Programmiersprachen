@@ -172,12 +172,53 @@ TEST_CASE("test comparisons of 2 lists with same sizes and different values", "[
 
 TEST_CASE("copy constructor", "[constructor]"){
 	List<int> list;
+	list.push_back(1);
+	list.push_back(2);
+	list.push_back(3);
+	list.push_back(4);
+	List<int> list2{list};
+	REQUIRE(list == list2);
+}
+
+TEST_CASE("insert element at iterator position", "[iterator]"){
+	List<int> list;
+	list.push_back(1);
+	list.push_back(2);
+	list.push_back(3);
+	list.push_back(4);
+	auto c_it = list.begin();
+	c_it++;
+	c_it++;
+	auto c_it2 = list.insert(c_it, 6);
+
+	List<int> list2;
+	list2.push_back(1);
+	list2.push_back(2);
+	list2.push_back(6);
+	list2.push_back(3);
+	list2.push_back(4);
+	REQUIRE(list == list2);
+}
+
+TEST_CASE("reverse list", "[reverse]"){
+	List<int> list;
 	list.push_front(1);
 	list.push_front(2);
 	list.push_front(3);
 	list.push_front(4);
-	List<int> list2{list};
+
+	// test function
+	auto list3 = reverse(list);
+
+	List<int> list2;
+	list2.push_front(4);
+	list2.push_front(3);
+	list2.push_front(2);
+	list2.push_front(1);
+
+	// test method
 	REQUIRE(list == list2);
+	REQUIRE(list == list3);
 }
 
 int main(int argc, char *argv[])
