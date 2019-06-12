@@ -327,6 +327,17 @@ class List{
 			}
 		}
 
+		List<T>& operator=(List<T>& lhs){
+			// first: empy existing list
+			clear();
+			ListIterator<T> a = lhs.begin();
+			while(a.node!=nullptr){
+				push_back(a.node->value);
+				a++;
+			}
+			return *this;
+		}
+
 		void reverse(){
 			ListNode<T>* a = first_;
 			ListNode<T>* tmp = nullptr;

@@ -260,8 +260,23 @@ TEST_CASE("add 2 list to new list", "[list operators]"){
 	list2.push_back(7);
 
 	auto list3 = list + list2;
-	list3.print();
 	REQUIRE(7 == list3.size());
+}
+
+TEST_CASE("list 2 = list 1", "[list operators]"){
+	List<int> list;
+	list.push_back(1);
+	list.push_back(2);
+	list.push_back(3);
+	list.push_back(4);
+
+	List<int> list2;
+	list.push_back(3);
+	list.push_back(4);
+
+	list2 = list;
+
+	REQUIRE(list2 == list);
 }
 
 int main(int argc, char *argv[])
