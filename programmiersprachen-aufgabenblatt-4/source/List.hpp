@@ -129,7 +129,6 @@ class List{
 				n = n->next;
 			}
 			n = nullptr;
-			delete n;
 		}
 
 		// move constructor
@@ -216,6 +215,7 @@ class List{
 			if(first_ != last_){
 				ListNode<T>* a = first_->next;
 				a->prev = nullptr;
+				first_->next = nullptr;
 				delete first_;
 				first_ = a;
 			}
@@ -379,6 +379,18 @@ List<T>& reverse(List<T>& l){
 	l.reverse();
 	//List<T> rev{l};
 	return l;
+}
+
+template<class T>
+List<T> operator+(List<T>& lhs, List<T>& rhs){
+			List<T> r{lhs};
+			ListIterator<T> a = rhs.begin();
+
+			while(a.node != nullptr){
+				r.push_back(a.node->value);
+				a++;
+			}
+			return r;
 }
 
 #endif //LIST_HPP

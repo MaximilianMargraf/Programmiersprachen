@@ -247,6 +247,23 @@ TEST_CASE("move constructor", "[constructor]"){
 	REQUIRE(4==list2.size());
 }
 
+TEST_CASE("add 2 list to new list", "[list operators]"){
+	List<int> list;
+	list.push_back(1);
+	list.push_back(2);
+	list.push_back(3);
+	list.push_back(4);
+
+	List<int> list2;
+	list2.push_back(5);
+	list2.push_back(6);
+	list2.push_back(7);
+
+	auto list3 = list + list2;
+	list3.print();
+	REQUIRE(7 == list3.size());
+}
+
 int main(int argc, char *argv[])
 {
   return Catch::Session().run(argc, argv);
