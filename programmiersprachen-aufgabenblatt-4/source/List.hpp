@@ -35,8 +35,7 @@ struct ListIterator{
 
 	// return pointer to iterator content
 	T* operator->() const{
-		T* t = &node->value;
-		return t;
+		return &(node->value);
 	}
 
 	// increase to next iterator and give old position back
@@ -120,6 +119,7 @@ class List{
 		List(List<T> const& a){
 			ListNode<T>* n = a.first_;
 			size_ = sizeof(T);
+
 			first_ = nullptr;
 			last_ = nullptr;
 
@@ -159,7 +159,7 @@ class List{
 
 		ListIterator<T> end(){
 			ListIterator<T> a;
-			a.node = nullptr;
+			a.node = last_;
 			return a;
 		}
 
@@ -169,6 +169,7 @@ class List{
 				a = a->next;
 				pop_front();
 			}
+			a = nullptr;
 		}
 
 		// add element at the front of the list
@@ -218,6 +219,7 @@ class List{
 				first_->next = nullptr;
 				delete first_;
 				first_ = a;
+				a = nullptr;
 			}
 			// 1 entry remaining
 			else if(first_ == last_ && last_ != nullptr){
@@ -232,8 +234,10 @@ class List{
 			if(first_ != last_){
 				ListNode<T>* a = last_->prev;
 				a->next = nullptr;
+				last_->prev = nullptr;
 				delete last_;
 				last_ = a;
+				a = nullptr;
 			}
 			// 1 entry remaining
 			else if(first_ == last_ && last_ != nullptr){
@@ -271,7 +275,6 @@ class List{
 				a = a->next;
 			}
 			a = nullptr;
-			delete a;
 			return c;
 		}
 
@@ -292,9 +295,7 @@ class List{
 					b = b->next;
 				}
 				a = nullptr;
-				delete a;
 				b = nullptr;
-				delete b;
 
 				if(eq)
 					return true;
@@ -319,9 +320,7 @@ class List{
 					b = b->next;
 				}
 				a = nullptr;
-				delete a;
 				b = nullptr;
-				delete b;
 
 				return true;
 			}

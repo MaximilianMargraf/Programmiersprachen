@@ -6,7 +6,7 @@
 #include "circle.hpp"
 #include "List.hpp"
 
-// test 2d vector
+// task 4.2
 TEST_CASE ("test_default_constructors", "[DefaultConstructor]"){
 	// test default constructor for empty list
 	List<int> list;
@@ -14,6 +14,7 @@ TEST_CASE ("test_default_constructors", "[DefaultConstructor]"){
 	REQUIRE(list.size() == 0);
 }
 
+// task 4.3
 TEST_CASE ("add an element with push_front", "[ modifiers ]"){
 	List<int> list;
 	list.push_front(42);
@@ -31,6 +32,7 @@ TEST_CASE ("add an element with push_front", "[ modifiers ]"){
 	REQUIRE(20==lost.back());
 }
 
+// task 4.3
 TEST_CASE ("add an element with push_back", "[modifiers]"){
 	List<int> list;
 	list.push_back(55);
@@ -44,6 +46,7 @@ TEST_CASE ("add an element with push_back", "[modifiers]"){
 	REQUIRE(list.size() == 2);
 }
 
+// task 4.3
 TEST_CASE ("delete an element with pop_front", "[modifiers]"){
 	List<int> list;
 	list.push_front(55);
@@ -62,6 +65,7 @@ TEST_CASE ("delete an element with pop_front", "[modifiers]"){
 	REQUIRE(list.empty());
 }
 
+// task 4.3
 TEST_CASE ("delete an element with pop_back", "[modifiers]"){
 	List<int> list;
 	list.push_front(55);
@@ -80,6 +84,7 @@ TEST_CASE ("delete an element with pop_back", "[modifiers]"){
 	REQUIRE(list.empty());
 }
 
+// task 4.4
 TEST_CASE ("should be empty after clearing", "[modifiers]"){
 	List<int> list;
 	list.push_front(55);
@@ -89,6 +94,7 @@ TEST_CASE ("should be empty after clearing", "[modifiers]"){
 	REQUIRE(list.empty());
 }
 
+// task 4.5
 TEST_CASE ("Test own iterator", "[iterator]"){
 	List<Circle> circle_list;
 	Circle c1 {1, "Number One"};
@@ -117,6 +123,7 @@ TEST_CASE ("Test own iterator", "[iterator]"){
 	REQUIRE(c_if == c_it);
 }
 
+// 4.6
 TEST_CASE("should be an empty range after default construction", "[iterator]"){
 	List<int> list;
 	auto b = list.begin();
@@ -125,12 +132,14 @@ TEST_CASE("should be an empty range after default construction", "[iterator]"){
 	REQUIRE(e.node == nullptr);
 }
 
+// 4.6
 TEST_CASE("provide access to the first element with begin", "[iterator]"){
 	List<int> list;
 	list.push_front(42);
 	REQUIRE(42 == *list.begin());
 }
 
+// 4.7
 TEST_CASE("test comparisons of 2 lists with different sizes", "[lists]"){
 	List<int> list;
 	list.push_front(42);
@@ -141,6 +150,7 @@ TEST_CASE("test comparisons of 2 lists with different sizes", "[lists]"){
 	REQUIRE(list != lost);
 }
 
+// 4.7
 TEST_CASE("test comparisons of 2 lists with same sizes and same values", "[lists]"){
 	List<int> list;
 	list.push_front(42);
@@ -155,6 +165,7 @@ TEST_CASE("test comparisons of 2 lists with same sizes and same values", "[lists
 	REQUIRE(!eq);
 }
 
+// 4.7
 TEST_CASE("test comparisons of 2 lists with same sizes and different values", "[lists]"){
 	List<int> list;
 	list.push_front(1);
@@ -171,6 +182,7 @@ TEST_CASE("test comparisons of 2 lists with same sizes and different values", "[
 	REQUIRE(!eq);
 }
 
+// 4.8
 TEST_CASE("copy constructor", "[constructor]"){
 	List<int> list;
 	list.push_back(1);
@@ -181,6 +193,7 @@ TEST_CASE("copy constructor", "[constructor]"){
 	REQUIRE(list == list2);
 }
 
+// 4.9
 TEST_CASE("insert element at iterator position", "[iterator]"){
 	List<int> list;
 	list.push_back(1);
@@ -201,6 +214,7 @@ TEST_CASE("insert element at iterator position", "[iterator]"){
 	REQUIRE(list == list2);
 }
 
+// 4.10
 TEST_CASE("reverse list", "[reverse]"){
 	List<int> list;
 	list.push_front(1);
@@ -222,7 +236,8 @@ TEST_CASE("reverse list", "[reverse]"){
 	REQUIRE(list == list3);
 }
 
-/*TEST_CASE("std::copy", "[optional]"){
+// 4.11
+TEST_CASE("std::copy", "[optional]"){
 	List<int> list;
 	list.push_front(1);
 	list.push_front(2);
@@ -231,38 +246,13 @@ TEST_CASE("reverse list", "[reverse]"){
 
 	std::vector<int> v;
 	std::copy(list.begin(), list.end(), std::back_inserter(v));
-	//std::copy(v.begin(), v.end(), std::ostream_iterator<int>(std::cout, " "));
-	//std::cout << "\n";
-}*/
-
-TEST_CASE("move constructor", "[constructor]"){
-	List<int> list;
-	list.push_front(1);
-	list.push_front(2);
-	list.push_front(3);
-	list.push_front(4);
-	List<int> list2 = std::move(list);
-	REQUIRE(0 == list.size());
-	REQUIRE(list.empty());
-	REQUIRE(4==list2.size());
+	list.print();
+	for(auto a : v){
+		std::cout<<a<<"\n";
+	}
 }
 
-TEST_CASE("add 2 list to new list", "[list operators]"){
-	List<int> list;
-	list.push_back(1);
-	list.push_back(2);
-	list.push_back(3);
-	list.push_back(4);
-
-	List<int> list2;
-	list2.push_back(5);
-	list2.push_back(6);
-	list2.push_back(7);
-
-	auto list3 = list + list2;
-	REQUIRE(7 == list3.size());
-}
-
+// 4.12
 TEST_CASE("list 2 = list 1", "[list operators]"){
 	List<int> list;
 	list.push_back(1);
@@ -277,6 +267,36 @@ TEST_CASE("list 2 = list 1", "[list operators]"){
 	list2 = list;
 
 	REQUIRE(list2 == list);
+}
+
+// 4.13
+TEST_CASE("move constructor", "[constructor]"){
+	List<int> list;
+	list.push_front(1);
+	list.push_front(2);
+	list.push_front(3);
+	list.push_front(4);
+	List<int> list2 = std::move(list);
+	REQUIRE(0 == list.size());
+	REQUIRE(list.empty());
+	REQUIRE(4==list2.size());
+}
+
+// 4.14
+TEST_CASE("add 2 list to new list", "[list operators]"){
+	List<int> list;
+	list.push_back(1);
+	list.push_back(2);
+	list.push_back(3);
+	list.push_back(4);
+
+	List<int> list2;
+	list2.push_back(5);
+	list2.push_back(6);
+	list2.push_back(7);
+
+	auto list3 = list + list2;
+	REQUIRE(7 == list3.size());
 }
 
 int main(int argc, char *argv[])
